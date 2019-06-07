@@ -4,3 +4,14 @@ cpk_unpack is largely superseded by the CRI CPK script for QuickBMS. http://alui
 
 
 usm_deinterleave is largely superseded by the USM functionality of VGMToolbox. http://sourceforge.net/projects/vgmtoolbox/
+
+
+========================================================================
+
+This particular version has a few lines added to extract the alpha transparency layer in USM files.
+
+All credit for the original code to https://github.com/hcs64
+
+original project
+https://github.com/hcs64/vgm_ripping
+
