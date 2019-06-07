@@ -93,7 +93,8 @@ void analyze_CRID(FILE *infile, const char *infile_name, long file_length, int v
     {
         CRID_stmid = 0x43524944,  /* CRID */
         SFV_stmid = 0x40534656,   /* @SFV */
-        SFA_stmid = 0x40534641    /* @SFA */
+        SFA_stmid = 0x40534641,    /* @SFA */
+		SFT_stmid = 0x40414C50  /*Alpha Channel*/
     };
 
     struct stream_info
@@ -271,6 +272,12 @@ void analyze_CRID(FILE *infile, const char *infile_name, long file_length, int v
                                     printf("Stream %d: Audio\n", i);
                                 }
                                 break;
+							case SFT_stmid:
+								if (verbosity >= verbose_normal)
+								{
+									printf("Stream %d: Alpha Channel\n", i);
+								}
+								break;
                             default:
                                 CHECK_ERROR (1, "unknown stmid");
                         }
@@ -318,6 +325,9 @@ void analyze_CRID(FILE *infile, const char *infile_name, long file_length, int v
                             case SFA_stmid:
                                 snprintf(name,outfile_name_length,"%s_%d.adx", infile_name, i);
                                 break;
+							case SFT_stmid:
+								snprintf(name,outfile_name_length,"%s_%d.mpg", infile_name, i);
+								break;
                         }
                         outfile_names[i] = name;
                         outfiles[i] = fopen(name, "wb");

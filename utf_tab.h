@@ -10,7 +10,7 @@
 #include "error_stuff.h"
 
 /* common version across the suite */
-#define VERSION "0.7 beta 3"
+#define VERSION "0.7 beta 3 FFBE"
 
 struct utf_query
 {
